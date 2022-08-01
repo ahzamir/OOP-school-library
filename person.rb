@@ -19,7 +19,7 @@ class Person
         end
     end
 
-    def can_use_services
+    def can_use_services?
         if @age < 18 || @parent_permission = true
             true
         else
@@ -27,3 +27,6 @@ class Person
         end
     end
 end
+
+
+    
