@@ -2,6 +2,7 @@ require './person'
 
 class Teacher < Person
   def initialize(specialization, _age, _name = 'Unknown', parent_permission: true)
+    super(age, name, parent_permission)
     @specialization = specialization
   end
 
