@@ -1,11 +1,11 @@
-require "./person.rb"
+require './person.rb'
 
 class Student < Person
-    def initialize(classroom)
-        @classroom = classroom
-    end
+  def initialize(classroom)
+    @classroom = classroom
+  end
 
-    def play_today
-        "¯\(ツ)/¯"
-    end
+  def play_today
+    "¯\(ツ)/¯"
+  end
 end
