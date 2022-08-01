@@ -11,4 +11,12 @@ class Person
 
     attr_accessor :age
 
+    def is_of_age?
+        if @age >= 18
+            true
+        else
+            false
+        end
+    end
+
 end
