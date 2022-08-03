@@ -2,10 +2,11 @@ require "./nameable"
 
 class Decorator < Nameable
     def initialize(nameable)
+        super()
         @nameable = nameable
     end
 
     def correct_name
-        attr_reader @nameable
+        @nameable.correct_name
     end
 end
