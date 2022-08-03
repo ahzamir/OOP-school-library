@@ -22,6 +22,6 @@ class Person < Nameable
   end
 
   def correct_name
-    @name
+    attr_reader :name
   end
 end
