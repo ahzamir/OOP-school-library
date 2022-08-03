@@ -1,4 +1,4 @@
 require "./nameable"
 
-class CapitalizeDecorator < Nameable
+class CapitalizeDecorator < Decorator
 end
