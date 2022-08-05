@@ -43,28 +43,43 @@ class App
             puts '⚠️ This is not an option. Please select a vaild input'
             run
         end
+    end
 
-        def run
-            menu 
-            answer = gets.chomp.to_i
-            option_checker(answer)
+    def run
+        menu 
+        answer = gets.chomp.to_i
+        option_checker(answer)
+    end
+
+    def list_books
+        puts 'Listing all books from library'
+        @books.each do |book|
+            puts "Book Title: '#{book.title}', Book Author: '#{book.author}'"
+        end
+        run
+    end
+
+    def list_people
+        puts 'listing all people'
+        @people.each do |person|
+            puts "[#{person.class.name}] ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
+        end
+        run
+    end
+
+    def create_person
+        puts 'Do you want to create a student (1), or a teacher (2)? [Input the number]: '
+        answer = gets.chomp.to_i
+        
+        case answer
+        when 1
+            create_student
+        when 2
+            create_teacher
+        else
+            puts '⚠️ Please enter a vaild input(1, 2)'
         end
 
-        def list_books
-            puts 'Listing all books from library'
-            @books.each do |book|
-                puts "Book Title: '#{book.title}', Book Author: '#{book.author}'"
-            end
-            run
-        end
-
-        def list_people
-            puts 'listing all people'
-            @people.each do |person|
-                puts "[#{person.class.name}] ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
-            end
-            run
-        end
-
+        run
     end
 end
