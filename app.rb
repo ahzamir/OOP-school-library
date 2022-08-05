@@ -50,6 +50,12 @@ class App
             option_checker(answer)
         end
 
-
+        def list_books
+            puts 'Listing all books from library'
+            @books.each do |book|
+                puts "Book Title: '#{book.title}', Book Author: '#{book.author}'"
+            end
+            run
+        end
     end
 end
