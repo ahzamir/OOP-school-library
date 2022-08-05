@@ -83,7 +83,7 @@ class App
         run
     end
 
-    def create_person
+    def create_student
         print 'Age: '
         age = gets.chomp.to_i
         print 'Name: '
@@ -97,8 +97,29 @@ class App
             permission = false
         end
 
-        student = Student.new(age, name, parent_permission: permission)
+        student = Student.new(nil, age, name, parent_permission: permission)
         @people.push(student)
         puts 'A student created successfully 👋👨‍🎓'
+    end
+
+    def create_teacher
+        print 'Specialization: '
+        specialization = gets.chomp
+        print 'Age: '
+        age = gets.chomp.to_i
+        print 'Name: '
+        name = gets.chomp
+        print 'Has parent permission? [Y/N]'
+        permission = gets.chomp.upcase
+        case permission
+        when 'Y'
+            permission = true
+        when 'N'
+            permission = false
+        end
+
+        teacher = Teacher.new(specialization, age, name, parent_permission: permission)
+        @people.push(teacher)
+        puts 'A teacher created successfully 🧑‍🏫👋'
     end
 end
