@@ -151,14 +151,14 @@ class App
     end
     selected_id_person = gets.chomp.to_i
 
-    rental = Rental.new(date, @book[selected_id_book], @people[selected_id_person])
-    rentals.push(rental)
+    rental = Rental.new(date, @books[selected_id_book], @people[selected_id_person])
+    @rentals.push(rental)
     puts 'Rental created successfully 👋📦'
     run
   end
 
   def list_rental
-    print 'ID of person'
+    print 'ID of person: '
     id = gets.chomp.to_i
     rentals = @rentals.select { |rental| rental.person.id == id }
     p rentals
