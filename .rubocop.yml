@@ -4,7 +4,7 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
-    - "main"
+    - "./main"
 
   DisplayCopNames: true
 
