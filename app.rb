@@ -22,4 +22,26 @@ class App
         puts '6 - List all rentals for a given id 📦🆔'
         puts '7 - Exit 🚪'
     end
+
+    def option_checker(answer)
+        case answer
+        when 1
+            list_books
+        when 2
+            list_people
+        when 3
+            create_person
+        when 4
+            create_book
+        when 5
+            create_rental
+        when 6
+            list_rental
+        when 7
+            'Thank you for using this app! 👍😊'
+        else 
+            puts '⚠️ This is not an option. Please select a vaild input'
+            run
+        end
+    end
 end
