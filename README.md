@@ -16,15 +16,21 @@ Save records of who borrowed a given book and when
 
 ## Getting Started
 
-To setup the project First clone this repo using the git command line :
-git clone https://github.com/ahzamir/OOP-school-library.git
+To get a local copy up and running follow these simple example steps.
 
-Then you you access to the project's folder
-cd OOP_library_scool
+1- Copy this link https://github.com/ahzamir/OOP-school-library.git
+2- Get the directory that you want to clone the repository.
+3- Open the command prompt in this directory.
+4- Write git clone https://github.com/ahzamir/OOP-school-library.git
+5- Go to the repository folder in your command prompt cd `OOp-school-library`.
+6- Go to command line and run `wsl` server and then run `ruby main.rb`.
 
-Finally execute :
-Ruby student.rb
+To setup linters on your local environment, please follow these steps.
 
+1- Run rubocop -a . for the errors.
+
+Prerequisites
+IDE(VSCode etc.), WSL(for Windows OS), for linters RuboCop
 
 To get a local copy up and running follow these simple example steps.
 
@@ -34,7 +40,7 @@ You must have a browser on your device, visual code installed in your device and
 
 ### Setup
 
-Clone the repository from GitHub, open the project folder, inside the project direcory open the commanline and run irb.
+Clone the repository from GitHub, open the project folder, inside the project direcory open the commandline and on windows run `wsl` server and then run `ruby main.rb`.
 
 ## Authors
 
