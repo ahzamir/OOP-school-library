@@ -43,5 +43,13 @@ class App
             puts '⚠️ This is not an option. Please select a vaild input'
             run
         end
+
+        def run
+            menu 
+            answer = gets.chomp.to_i
+            option_checker(answer)
+        end
+
+
     end
 end
