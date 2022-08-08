@@ -40,7 +40,7 @@ class App
     when 6
       list_rental
     when 7
-      'Thank you for using this app! 👍😊'
+      puts 'Thank you for using this app! 👍😊'
     else
       puts '⚠️ Wrong input'
       run
