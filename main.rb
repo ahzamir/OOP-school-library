@@ -1,4 +1,5 @@
 require './app'
+require 'json'
 
 def main
   puts 'Welcome to the School Library App 📚🙋'
