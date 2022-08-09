@@ -171,6 +171,7 @@ class App
   def save_files
     File.open('books.json', 'w') { |file| file.write(@books.to_json) }
     File.open('people.json','w') { |file| file.write(@people.to_json) }
+    File.open('rentals.json','w') { |file| file.write(@rentals.to_json) }
     puts 'The file saved successfully 👍✅'
   end
 end
