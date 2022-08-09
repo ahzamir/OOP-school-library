@@ -40,6 +40,7 @@ class App
     when 6
       list_rental
     when 7
+      save_files
       puts 'Thank you for using this app! 👍😊'
     else
       puts '⚠️ Wrong input'
@@ -164,5 +165,11 @@ class App
     p rentals
     rentals.each { |item| puts "Date: #{item.date}, Book: #{item.book.title}, by: #{item.book.author}" }
     run
+  end
+
+  def save_files
+    File.write('books.json', JSON.generate(@books)) if @books.any?
+    File.write('rentals.json', JSON.generate(@rentals)) if @rentals.any?
+    File.write('people.json', JSON.generate(@people)) if @people.any?
   end
 end
