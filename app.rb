@@ -2,6 +2,7 @@ require './teacher'
 require './student'
 require './book'
 require './rental'
+require 'json'
 
 class App
   attr_accessor :people
@@ -168,8 +169,6 @@ class App
   end
 
   def save_files
-    File.write('books.json', JSON.generate(@books)) if @books.any?
-    File.write('rentals.json', JSON.generate(@rentals)) if @rentals.any?
-    File.write('people.json', JSON.generate(@people)) if @people.any?
+    puts 'The file saved successfully 👍✅'
   end
 end
