@@ -220,5 +220,21 @@ class App
     rental_object = Rental.new(rental['date'], book_object, person_object)
     @rentals << rental_object
   end
+  # we need to create a new object for each class and give it the arg from file hashs
+  def create_book_object(book)
+    Book.new(book['title'], book['author'])
+  end
+
+  # For person because we have students and teachers first we check the class.
+  def create_person_object_based_on_type(person)
+    if person['json_class'] == 'Teacher'
+      create_teacher_object(person)
+    else
+      create_student_object(person)
+    end
+  end
+
+  
+
 
 end
