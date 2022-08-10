@@ -240,5 +240,11 @@ class App
     teacher_object
   end
 
+  def create_student_object(person)
+    student_object = Student.new(nil, person['age'], person['name'], parent_permission: person['parent_permission'])
+    student_object.id = person['id'].to_i
+    student_object
+  end
+
 
 end
