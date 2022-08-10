@@ -2,11 +2,11 @@
 
 # OOP school library
 
-> is a ruby program that allows the user to to record what books are in the library and who borrows them. The app that you will create will allow you to:
+> This is a ruby program that allows the user to to record what books are in the library and who borrows them. The app that you will create will allow you to:
 
-Add new students or teachers.
-Add new books.
-Save records of who borrowed a given book and when
+- Add new students or teachers.
+- Add new books.
+- Save records of who borrowed a given book and when
 
 
 ## Built With 
@@ -44,9 +44,15 @@ Clone the repository from GitHub, open the project folder, inside the project di
 
 ## Authors
 
+### Author 1 🤵
 - GitHub: [@ahzamir](https://github.com/ahzamir).
 - Twitter: [@YousufiZamir](https://twitter.com/YousufiZamir)
 - LinkedIn: [ahmad-zamir-yousufi](https://www.linkedin.com/in/ahzamir/)
+
+### Author 1 🤵
+- GitHub: [@brahimdidi](https://github.com/brahimdidi)
+- Linkedin: [Brahim Didi](https://www.linkedin.com/in/brahimdidi/)
+
 
 ## 🤝 Contributing
 
