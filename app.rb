@@ -2,6 +2,7 @@ require './teacher'
 require './student'
 require './book'
 require './rental'
+require 'json'
 
 class App
   attr_accessor :people
@@ -25,6 +26,7 @@ class App
   end
 
   # rubocop:disable Metrics/CyclomaticComplexity
+
   def option_checker(answer)
     case answer
     when 1
@@ -40,6 +42,7 @@ class App
     when 6
       list_rental
     when 7
+      save_files
       puts 'Thank you for using this app! 👍😊'
     else
       puts '⚠️ Wrong input'
@@ -164,5 +167,88 @@ class App
     p rentals
     rentals.each { |item| puts "Date: #{item.date}, Book: #{item.book.title}, by: #{item.book.author}" }
     run
+  end
+
+  # rubocop:disable Style/FileWrite
+  def save_files
+    File.open('books.json', 'w') { |file| file.write(@books.to_json) }
+    File.open('people.json', 'w') { |file| file.write(@people.to_json) }
+    File.open('rentals.json', 'w') { |file| file.write(@rentals.to_json) }
+    puts 'The file saved successfully 👍✅'
+  end
+  # rubocop:enable Style/FileWrite
+
+  ## First of all we need to def a method so we can call it while we run our app.
+  # next we have to check if a file exist? maybe we run our app for the first time.
+  # and id our file exists so we load the file
+
+  # rubocop:disable Style/GuardClause
+  def open_files
+    if File.exist?('books.json')
+      JSON.parse(File.read('books.json')).map do |book|
+        load_book(book)
+      end
+    end
+    if File.exist?('people.json')
+      JSON.parse(File.read('people.json')).map do |person|
+        load_person(person)
+      end
+    end
+    if File.exist?('rentals.json')
+      JSON.parse(File.read('rentals.json')).map do |rental|
+        load_rental(rental)
+      end
+    end
+  end
+  # rubocop:enable Style/GuardClause
+
+  # while we load our file we need to create a new object for that file class
+  # we should create the object from givven class and give it the arg from file hashs
+  # after we created new obj of class we need to push it our array.
+  def load_book(book)
+    book_object = create_book_object(book)
+    @books << book_object
+  end
+
+  def load_person(person)
+    person_object = create_person_object_based_on_type(person)
+    @people << person_object
+  end
+
+  def load_rental(rental)
+    book = rental['book']
+    book_object = create_book_object(book)
+    person = rental['person']
+    person_object = create_person_object_based_on_type(person)
+    date = rental['date']
+    rental_object = Rental.new(date, book_object, person_object)
+    @rentals << rental_object
+  end
+
+  # we need to create a new object for each class and give it the arg from file hashs
+  def create_book_object(book)
+    Book.new(book['title'], book['author'])
+  end
+
+  # For person because we have students and teachers first we check the class.
+  def create_person_object_based_on_type(person)
+    if person['json_class'] == 'Teacher'
+      create_teacher_object(person)
+    else
+      create_student_object(person)
+    end
+  end
+
+  def create_teacher_object(person)
+    teacher_object = Teacher.new(person['specialization'], person['age'], person['name'],
+                                 parent_permission: person['parent_permission'])
+    teacher_object.id = person['id'].to_i
+    teacher_object
+  end
+
+  def create_student_object(person)
+    student_object = Student.new(nil, person['age'], person['name'], parent_permission: person['parent_permission'])
+    student_object.id = person['id'].to_i
+    student_object
   end
 end
