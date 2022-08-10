@@ -26,6 +26,7 @@ class App
   end
 
   # rubocop:disable Metrics/CyclomaticComplexity
+  # rubocop:disable Style/FileWrite
   def option_checker(answer)
     case answer
     when 1
