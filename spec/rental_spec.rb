@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Rental do 
   before :each do
-    @book = Book.new('ahmad', 'any', 'any')
+    @book = Book.new('ahmad', 'any')
     @student = Student.new('ahmad', 'any', 'any')
     @rental = Rental.new('02/12/2022', @book, @student)
   end
