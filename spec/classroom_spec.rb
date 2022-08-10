@@ -9,10 +9,10 @@ describe Classroom do
     it "returns new classroom object" do
       @classroom.should be_an_instance_of Classroom
     end
-    it 'throws error when arguments less than 2' do
+    it 'throws error when arguments less than 1' do
        lambda { Classroom.new() }.should raise_exception ArgumentError
     end
-    it 'throws error when arguments more than 2' do
+    it 'throws error when arguments more than 1' do
        lambda { Classroom.new('label','extra_argument') }.should raise_exception ArgumentError
     end
   end
