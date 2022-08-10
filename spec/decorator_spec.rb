@@ -12,10 +12,10 @@ describe Decorator do
       @decorator.should be_an_instance_of Decorator
     end
     it 'throws error when arguments less than 1' do
-       lambda { decorator.new() }.should raise_exception ArgumentError
+       lambda { Decorator.new() }.should raise_exception ArgumentError
     end
     it 'throws error when arguments more than 1' do
-       lambda { decorator.new('name', 'extra_argument') }.should raise_exception ArgumentError
+       lambda { Decorator.new('name', 'extra_argument') }.should raise_exception ArgumentError
     end
   end
 
