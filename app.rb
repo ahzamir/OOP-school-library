@@ -234,5 +234,11 @@ class App
     end
   end
 
+  def create_teacher_object(person)
+    teacher_object = Teacher.new(person['specialization'], person['age'], person['name'], parent_permission: person['parent_permission'])
+    teacher_object.id = person['id'].to_i
+    teacher_object
+  end
+
 
 end
