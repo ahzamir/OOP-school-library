@@ -211,4 +211,14 @@ class App
     @people << person_object
   end
 
+  def load_rental(rental)
+    book = rental['book']
+    book_object = create_book_object(book)
+    person = rental['person']
+    person_object = create_person_object_based_on_type(person)
+    date = rental['date']
+    rental_object = Rental.new(rental['date'], book_object, person_object)
+    @rentals << rental_object
+  end
+
 end
