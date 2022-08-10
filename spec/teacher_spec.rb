@@ -26,8 +26,5 @@ describe Teacher do
     it "returns correct name" do
       @teacher.name.should eql 'teacher_name'
     end
-    it "returns correct classroom" do
-      @teacher.specialization.should eql 'specialization'
-    end
   end
 end
