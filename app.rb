@@ -196,4 +196,14 @@ class App
       end
     end
   end
+  # rubocop:enable Style/GuardClause
 
+  # while we load our file we need to create a new object for that file class
+  # we should create the object from givven class and give it the arg from file hashs
+  # after we created new obj of class we need to push it our array.
+  def load_book(book)
+    book_object = create_book_object(book)
+    @books << book_object
+  end
+
+end
