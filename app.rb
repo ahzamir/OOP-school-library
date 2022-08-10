@@ -206,4 +206,9 @@ class App
     @books << book_object
   end
 
+  def load_person(person)
+    person_object = create_person_object_based_on_type(person)
+    @people << person_object
+  end
+
 end
