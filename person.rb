@@ -2,7 +2,7 @@ require './nameable'
 require './rental'
 
 class Person < Nameable
-  attr_reader :id
+  attr_accessor :id
 
   attr_accessor :name, :age, :parent_permission, :rentals
 

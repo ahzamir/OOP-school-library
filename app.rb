@@ -174,4 +174,26 @@ class App
     File.open('rentals.json','w') { |file| file.write(@rentals.to_json) }
     puts 'The file saved successfully 👍✅'
   end
-end
+
+  ## First of all we need to def a method so we can call it while we run our app.
+  # next we have to check if a file exist? maybe we run our app for the first time.
+  # and id our file exists so we load the file
+  # rubocop:disable Style/GuardClause
+  def open_files
+    if File.exist?('books.json')
+      JSON.parse(File.read('books.json')).map do |book|
+        load_book(book)
+      end
+    end
+    if File.exist?('people.json')
+      JSON.parse(File.read('people.json')).map do |person|
+        load_person(person)
+      end
+    end
+    if File.exist?('rentals.json')
+      JSON.parse(File.read('rentals.json')).map do |rental|
+        load_rental(rental)
+      end
+    end
+  end
+
