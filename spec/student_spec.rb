@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe student do 
+describe Student do 
   before :each do
     @classroom = Classroom.new('any')
     @student = Student.new(@classroom, 34, 'zamir')
