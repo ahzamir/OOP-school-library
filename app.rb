@@ -170,8 +170,8 @@ class App
 
   def save_files
     File.open('books.json', 'w') { |file| file.write(@books.to_json) }
-    File.open('people.json','w') { |file| file.write(@people.to_json) }
-    File.open('rentals.json','w') { |file| file.write(@rentals.to_json) }
+    File.open('people.json', 'w') { |file| file.write(@people.to_json) }
+    File.open('rentals.json', 'w') { |file| file.write(@rentals.to_json) }
     puts 'The file saved successfully 👍✅'
   end
 
@@ -220,6 +220,7 @@ class App
     rental_object = Rental.new(rental['date'], book_object, person_object)
     @rentals << rental_object
   end
+
   # we need to create a new object for each class and give it the arg from file hashs
   def create_book_object(book)
     Book.new(book['title'], book['author'])
@@ -235,7 +236,8 @@ class App
   end
 
   def create_teacher_object(person)
-    teacher_object = Teacher.new(person['specialization'], person['age'], person['name'], parent_permission: person['parent_permission'])
+    teacher_object = Teacher.new(person['specialization'], person['age'], person['name'],
+                                 parent_permission: person['parent_permission'])
     teacher_object.id = person['id'].to_i
     teacher_object
   end
@@ -245,6 +247,4 @@ class App
     student_object.id = person['id'].to_i
     student_object
   end
-
-
 end
