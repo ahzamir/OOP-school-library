@@ -178,6 +178,7 @@ class App
   ## First of all we need to def a method so we can call it while we run our app.
   # next we have to check if a file exist? maybe we run our app for the first time.
   # and id our file exists so we load the file
+  
   # rubocop:disable Style/GuardClause
   def open_files
     if File.exist?('books.json')
@@ -217,7 +218,7 @@ class App
     person = rental['person']
     person_object = create_person_object_based_on_type(person)
     date = rental['date']
-    rental_object = Rental.new(rental['date'], book_object, person_object)
+    rental_object = Rental.new(date, book_object, person_object)
     @rentals << rental_object
   end
 
